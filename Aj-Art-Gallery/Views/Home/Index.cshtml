@@ -23,7 +23,7 @@
 @{
     var demo = new List<ArtItem>
     {
-        new() { Id=1, Title="Midnight Reflections", Artist="A. Noor", Category="Painting", Medium="Oil on Canvas", Price=2200, ImageUrl="https://images.unsplash.com/photo-1549887534-1541e9323b8f?q=80&w=1200&auto=format&fit=crop", Alt="Abstract oil painting in deep blues", Aspect=0.75 },
+        new() { Id=1, Title="Midnight Reflections", Artist="A. Noor", Category="Painting", Medium="Oil on Canvas", Price=2200, ImageUrl="/images/art2.JPEG", Alt="Abstract oil painting in deep blues", Aspect=0.75 },
         new() { Id=2, Title="Glass Bloom", Artist="R. Santos", Category="Sculpture", Medium="Glass", Price=4800, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Glass sculpture with floral motifs", Aspect=1.2 },
         new() { Id=3, Title="City Veins", Artist="M. Ito", Category="Photography", Medium="Digital", Price=900, ImageUrl="https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?q=80&w=1200&auto=format&fit=crop", Alt="Urban night photography with light trails", Aspect=1.5 },
         new() { Id=4, Title="Desert Lines", Artist="K. Rao", Category="Painting", Medium="Acrylic", Price=1400, ImageUrl="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop", Alt="Minimalist desert landscape painting", Aspect=0.8 },
@@ -34,6 +34,10 @@
         new() { Id=9, Title="Light Study No. 5", Artist="Y. Park", Category="Photography", Medium="Digital", Price=700, ImageUrl="https://images.unsplash.com/photo-1582711012124-a56cf82307df?q=80&w=1200&auto=format&fit=crop", Alt="Fine art photo study of light", Aspect=1.2 },
         new() { Id=10, Title="Coastal Echo", Artist="R. O’Malley", Category="Painting", Medium="Oil", Price=2600, ImageUrl="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop", Alt="Ocean-inspired oil painting", Aspect=0.7 },
         new() { Id=11, Title="Porcelain Cloud", Artist="N. Kuang", Category="Sculpture", Medium="Ceramic", Price=3100, ImageUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop", Alt="Porcelain ceramic sculpture", Aspect=1.0 },
+        new() { Id=12, Title="Waterlines", Artist="C. Dahan", Category="Painting", Medium="Watercolor", Price=950, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Soft watercolor landscape", Aspect=0.85 },
+        new() { Id=12, Title="Face Portrait", Artist="Danish Kaneria", Category="Skethcing", Medium="pencil", Price=4000, ImageUrl="/images/art1.JPEG", Alt="Soft watercolor landscape", Aspect=0.85 },
+        new() { Id=12, Title="Waterlines", Artist="C. Dahan", Category="Painting", Medium="Watercolor", Price=950, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Soft watercolor landscape", Aspect=0.85 },
+        new() { Id=12, Title="Waterlines", Artist="C. Dahan", Category="Painting", Medium="Watercolor", Price=950, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Soft watercolor landscape", Aspect=0.85 },
         new() { Id=12, Title="Waterlines", Artist="C. Dahan", Category="Painting", Medium="Watercolor", Price=950, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Soft watercolor landscape", Aspect=0.85 },
     };
 }
@@ -59,12 +63,13 @@
                     beautiful, Pinterest‑style showcase.
                 </p>
                 <div style="display:flex; gap:.6rem; margin-top:1rem">
-                    <a class="btn primary" href="#gallery">Browse Gallery</a>
-                    <a class="btn" href="#featured">Featured Artists</a>
+                    <a class=" custom-btn" href="#gallery">Browse Gallery</a>
+                    <a class="custom-btn" href="#featured">Featured Artists</a>
                 </div>
             </div>
             <aside class="hero-card" aria-label="Featured Works Preview">
                 <div class="hero-grid">
+                    
                     <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600&auto=format&fit=crop" alt="Ocean-inspired abstract" loading="lazy" />
                     <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Minimal sculpture in white" loading="lazy" />
                     <img src="https://images.unsplash.com/photo-1549887534-1541e9323b8f?q=80&w=600&auto=format&fit=crop" alt="Deep blue abstract painting" loading="lazy" />
@@ -97,7 +102,7 @@
         </div>
     </section>
 
-    Gallery
+    
     <section id="gallery" class="section">
         <div class="container">
             <div id="masonry" class="masonry" aria-live="polite">
@@ -128,10 +133,10 @@
                                 <span class="badge" title="Medium">@art.Medium</span>
                             </div>
                             <div class="actions" style="margin-top:.6rem">
-                                <button class="btn" data-open="@art.Id" aria-label="View details for @art.Title">
+                                <button class="like" data-open="@art.Id" aria-label="View details for @art.Title">
                                     View
                                 </button>
-                                <button class="btn ghost" aria-label="Add to collection">
+                                <button class="like ghost" aria-label="Add to collection">
                                     Add to Collection
                                 </button>
                                 <button class="like" data-like="@art.Id" aria-pressed="false" aria-label="Like @art.Title">
@@ -149,7 +154,7 @@
         </div>
     </section>
 
-    Lightbox dialog
+   
     <dialog id="lightbox" class="lightbox" aria-label="Artwork detail">
         <button class="close-x" data-close aria-label="Close">✕</button>
         <div class="lightbox-grid">
