@@ -1,0 +1,120 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Explore";
+}
+@functions {
+    public class ArtItem
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = "";
+        public string Artist { get; set; } = "";
+        public string Category { get; set; } = "";
+        public string Medium { get; set; } = "";
+        public decimal? Price { get; set; }
+        public string ImageUrl { get; set; } = "";
+        public string Alt { get; set; } = "";
+        public double Aspect { get; set; } = 1.0;
+        public int ReviewsCount { get; set; } = 1200;
+        public string Location { get; set; } = "Art District";
+        public string Type { get; set; } = "Gallery Events";
+    }
+}
+
+@{
+    var demo = new List<ArtItem>
+    {
+        new() { Id=1, Title="Midnight Reflections", Artist="A. Noor", Category="Painting", Medium="Oil on Canvas", Price=2200, ImageUrl="/images/art2.JPEG", Alt="Abstract oil painting in deep blues" },
+        new() { Id=2, Title="Glass Bloom", Artist="R. Santos", Category="Sculpture", Medium="Glass", Price=4800, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Glass sculpture" },
+        new() { Id=3, Title="City Veins", Artist="M. Ito", Category="Photography", Medium="Digital", Price=900, ImageUrl="https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?q=80&w=1200&auto=format&fit=crop", Alt="Urban photography" },
+        new() { Id=4, Title="Desert Lines", Artist="K. Rao", Category="Painting", Medium="Acrylic", Price=1400, ImageUrl="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop", Alt="Desert landscape" },
+        new() { Id=5, Title="Quiet Form", Artist="E. Julien", Category="Sculpture", Medium="Stone", Price=5200, ImageUrl="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop", Alt="Stone sculpture" },
+        new() { Id=6, Title="Face Portrait", Artist="Danish Kaneria", Category="Sketching", Medium="Pencil", Price=4000, ImageUrl="/images/art1.JPEG", Alt="Portrait sketch" }
+    };
+}
+
+
+
+
+
+<section class="featured-art">
+    <div class="container">
+        <h1 class="page-title">Featured Artwork</h1>
+        <p class="page-subtitle">Discover our exquisite collection</p>
+
+        <div class="content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="filter">
+                    <h3>Rating</h3>
+                    <div class="filter-group">
+                        <button class="btn ghost small">Any</button>
+                        <button class="btn ghost small">3+</button>
+                        <button class="btn ghost small">4+</button>
+                        <button class="btn ghost small">4.5+</button>
+                    </div>
+                </div>
+
+                <div class="filter">
+                    <h3>Location</h3>
+                    <select class="select">
+                        <option>Art District</option>
+                        <option>Modern Gallery</option>
+                        <option>Downtown Studio</option>
+                    </select>
+                    <input type="text" placeholder="Search Artwork or Artist" class="input" />
+                </div>
+
+                <div class="filter">
+                    <h3>Gallery Status</h3>
+                    <label><input type="checkbox" checked /> Open</label>
+                    <label><input type="checkbox" /> Featured</label>
+                </div>
+
+                <div class="filter">
+                    <h3>Categories</h3>
+                    <button class="btn ghost small">Paintings</button>
+                    <button class="btn ghost small">Sculptures</button>
+                    <button class="btn ghost small">Photography</button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="art-list">
+                <div class="top-bar">
+                    <span>1–10 of 1,000 results</span>
+                    <select class="select sort">
+                        <option>Most Popular</option>
+                        <option>Newest</option>
+                        <option>Top Rated</option>
+                    </select>
+                </div>
+
+                @foreach (var art in demo)
+                {
+                    <div class="art-item">
+                        <img src="@art.ImageUrl" alt="@art.Title" class="thumb" />
+                        <div class="info">
+                            <h2>@art.Title</h2>
+                            <div class="rating">
+                                <span>★★★★★</span>
+                                <span class="muted">Rating</span>
+                                <span class="muted">Reviews: @art.ReviewsCount</span>
+                            </div>
+                            <div class="tags">
+                                <span>@art.Category</span>
+                                <span>@art.Location</span>
+                                <span>@art.Type</span>
+                            </div>
+                            <div class="actions">
+                                <button class="btn">View</button>
+                                <button class="btn ghost">Add to Collection</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </main>
+        </div>
+    </div>
+</section>

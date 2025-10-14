@@ -46,7 +46,6 @@
 
 
 
-
 <main>
     <section class="hero">
         <div class="container hero-wrap">
@@ -63,8 +62,8 @@
                     beautiful, Pinterest‑style showcase.
                 </p>
                 <div style="display:flex; gap:.6rem; margin-top:1rem">
-                    <a class=" custom-btn" href="#gallery">Browse Gallery</a>
-                    <a class="custom-btn" href="#featured">Featured Artists</a>
+                    <a class="custom-btn" asp-action="Explore">Explore Art</a>
+                    
                 </div>
             </div>
             <aside class="hero-card" aria-label="Featured Works Preview">
@@ -81,7 +80,6 @@
         </div>
     </section>
 
-    Filters
     <section class="filters" aria-label="Filters">
         <div class="container filters-inner">
             <div class="search" role="search">
@@ -126,7 +124,6 @@
                                     <div class="title">@art.Title</div>
                                     <div class="artist">@art.Artist</div>
                                 </div>
-                                <div class="price">@((art.Price.HasValue ? $"${art.Price.Value:n0}" : "Inquire"))</div>
                             </div>
                             <div class="meta" style="margin-top:.35rem">
                                 <span class="badge" title="Category">@art.Category</span>

@@ -18,6 +18,11 @@ namespace Aj_Art_Gallery.Controllers
             return View();
         }
 
+        public IActionResult Explore()
+        {
+                       return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
