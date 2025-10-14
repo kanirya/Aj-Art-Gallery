@@ -9,22 +9,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/components.css" />
 </head>
 <body>
     <header class="site-header">
-        <div class="container header-inner">
-            <div class="brand">Artistry</div>
-            <nav class="nav">
-                <a href="#" aria-current="page">Home</a>
-                <a href="#">Exhibitions</a>
-                <a href="#">Artists</a>
-                <a href="#">Events</a>
-            </nav>
-            <div class="auth-actions">
-                <a class="btn btn-ghost" href="#">Log In</a>
-                <a class="btn btn-outline" href="#">Sign Up</a>
+        <div class="container nav justify-content-between" role="navigation" aria-label="Main">
+         
+
+
+            <div style="display:flex; align-items:center; justify-content:left; gap:40px; max-width:1200px; margin:0 auto;">
+
+                <!-- Logo Section -->
+                <div class="logo" style="display:flex; align-items:center; gap:10px; font-size:20px; font-weight:600;">
+                    <span class="logo-badge" aria-hidden="true">A</span>
+                    <span>Artfolio Gallery</span>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="nav-links mx-lg-2" aria-label="Sections" style="display:flex;  gap:40px;">
+                    <a href="#" style=" text-decoration:none; font-size:16px; font-weight:500;">Home</a>
+                    <a href="#" style=" text-decoration:none; font-size:16px; font-weight:500;">Exhibitions</a>
+                    <a href="#" style=" text-decoration:none; font-size:16px; font-weight:500;">Artists</a>
+                    <a href="#" style=" text-decoration:none; font-size:16px; font-weight:500;">Events</a>
+                </nav>
+
             </div>
+            <button class="custom-btn">LOG IN</button>
+           
         </div>
+
+
+
     </header>
 
     <main class="container">
@@ -76,3 +91,5 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+
