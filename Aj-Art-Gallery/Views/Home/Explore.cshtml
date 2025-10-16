@@ -4,117 +4,298 @@
 @{
     ViewData["Title"] = "Explore";
 }
+
+
+
+
 @functions {
     public class ArtItem
     {
         public int Id { get; set; }
         public string Title { get; set; } = "";
         public string Artist { get; set; } = "";
-        public string Category { get; set; } = "";
-        public string Medium { get; set; } = "";
-        public decimal? Price { get; set; }
+        public string Category { get; set; } = "";  // e.g., Painting, Sculpture, Photography
+        public string Medium { get; set; } = "";    // e.g., Oil, Acrylic, Digital
+        public decimal? Price { get; set; }         // null if NFS
         public string ImageUrl { get; set; } = "";
         public string Alt { get; set; } = "";
-        public double Aspect { get; set; } = 1.0;
-        public int ReviewsCount { get; set; } = 1200;
-        public string Location { get; set; } = "Art District";
-        public string Type { get; set; } = "Gallery Events";
+        public double Aspect { get; set; } = 1.0;   // width/height for rough size hints (optional)
     }
 }
+
 
 @{
     var demo = new List<ArtItem>
     {
-        new() { Id=1, Title="Midnight Reflections", Artist="A. Noor", Category="Painting", Medium="Oil on Canvas", Price=2200, ImageUrl="/images/art2.JPEG", Alt="Abstract oil painting in deep blues" },
-        new() { Id=2, Title="Glass Bloom", Artist="R. Santos", Category="Sculpture", Medium="Glass", Price=4800, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Glass sculpture" },
-        new() { Id=3, Title="City Veins", Artist="M. Ito", Category="Photography", Medium="Digital", Price=900, ImageUrl="https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?q=80&w=1200&auto=format&fit=crop", Alt="Urban photography" },
-        new() { Id=4, Title="Desert Lines", Artist="K. Rao", Category="Painting", Medium="Acrylic", Price=1400, ImageUrl="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop", Alt="Desert landscape" },
-        new() { Id=5, Title="Quiet Form", Artist="E. Julien", Category="Sculpture", Medium="Stone", Price=5200, ImageUrl="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop", Alt="Stone sculpture" },
-        new() { Id=6, Title="Face Portrait", Artist="Danish Kaneria", Category="Sketching", Medium="Pencil", Price=4000, ImageUrl="/images/art1.JPEG", Alt="Portrait sketch" }
+        new() { Id=1, Title="Midnight Reflections", Artist="A. Noor", Category="Painting", Medium="Oil on Canvas", Price=2200, ImageUrl="/images/art2.JPEG", Alt="Abstract oil painting in deep blues", Aspect=0.75 },
+        new() { Id=2, Title="Glass Bloom", Artist="R. Santos", Category="Sculpture", Medium="Glass", Price=4800, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Glass sculpture with floral motifs", Aspect=1.2 },
+        new() { Id=3, Title="City Veins", Artist="M. Ito", Category="Photography", Medium="Digital", Price=900, ImageUrl="https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?q=80&w=1200&auto=format&fit=crop", Alt="Urban night photography with light trails", Aspect=1.5 },
+        new() { Id=4, Title="Desert Lines", Artist="K. Rao", Category="Painting", Medium="Acrylic", Price=1400, ImageUrl="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop", Alt="Minimalist desert landscape painting", Aspect=0.8 },
+        new() { Id=5, Title="Quiet Form", Artist="E. Julien", Category="Sculpture", Medium="Stone", Price=5200, ImageUrl="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop", Alt="Stone sculpture with smooth forms", Aspect=1.1 },
+        new() { Id=6, Title="Silver Rain", Artist="L. Chen", Category="Photography", Medium="B&W Film", Price=1100, ImageUrl="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop", Alt="Black and white street photo in rain", Aspect=0.66 },
+        new() { Id=7, Title="Garden of Lines", Artist="P. Singh", Category="Painting", Medium="Ink", Price=800, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Ink linework botanical illustration", Aspect=0.9 },
+        new() { Id=8, Title="Copper Memory", Artist="S. Morales", Category="Sculpture", Medium="Metal", Price=null, ImageUrl="https://images.unsplash.com/photo-1530023367847-a683933f417c?q=80&w=1200&auto=format&fit=crop", Alt="Copper metal sculpture", Aspect=1.4 },
+        new() { Id=9, Title="Light Study No. 5", Artist="Y. Park", Category="Photography", Medium="Digital", Price=700, ImageUrl="https://images.unsplash.com/photo-1582711012124-a56cf82307df?q=80&w=1200&auto=format&fit=crop", Alt="Fine art photo study of light", Aspect=1.2 },
+        new() { Id=10, Title="Coastal Echo", Artist="R. O’Malley", Category="Painting", Medium="Oil", Price=2600, ImageUrl="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop", Alt="Ocean-inspired oil painting", Aspect=0.7 },
+        new() { Id=11, Title="Porcelain Cloud", Artist="N. Kuang", Category="Sculpture", Medium="Ceramic", Price=3100, ImageUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop", Alt="Porcelain ceramic sculpture", Aspect=1.0 },
+        new() { Id=12, Title="Waterlines", Artist="C. Dahan", Category="Painting", Medium="Watercolor", Price=950, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Soft watercolor landscape", Aspect=0.85 },
+        new() { Id=12, Title="Face Portrait", Artist="Danish Kaneria", Category="Skethcing", Medium="pencil", Price=4000, ImageUrl="/images/art1.JPEG", Alt="Soft watercolor landscape", Aspect=0.85 },
+        new() { Id=12, Title="Waterlines", Artist="C. Dahan", Category="Painting", Medium="Watercolor", Price=950, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Soft watercolor landscape", Aspect=0.85 },
+        new() { Id=12, Title="Waterlines", Artist="C. Dahan", Category="Painting", Medium="Watercolor", Price=950, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Soft watercolor landscape", Aspect=0.85 },
+        new() { Id=12, Title="Waterlines", Artist="C. Dahan", Category="Painting", Medium="Watercolor", Price=950, ImageUrl="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop", Alt="Soft watercolor landscape", Aspect=0.85 },
     };
 }
 
 
 
 
-
 <section class="featured-art">
-    <div class="container">
-        <h1 class="page-title">Featured Artwork</h1>
-        <p class="page-subtitle">Discover our exquisite collection</p>
 
-        <div class="content">
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <div class="filter">
-                    <h3>Rating</h3>
-                    <div class="filter-group">
-                        <button class="btn ghost small">Any</button>
-                        <button class="btn ghost small">3+</button>
-                        <button class="btn ghost small">4+</button>
-                        <button class="btn ghost small">4.5+</button>
-                    </div>
-                </div>
+    <section class="filters" aria-label="Filters">
+        <div class="container filters-inner">
+            <div class="search" role="search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+                <input id="searchInput" type="search" placeholder="Search by title, artist, or medium…" aria-label="Search artworks" />
+            </div>
 
-                <div class="filter">
-                    <h3>Location</h3>
-                    <select class="select">
-                        <option>Art District</option>
-                        <option>Modern Gallery</option>
-                        <option>Downtown Studio</option>
-                    </select>
-                    <input type="text" placeholder="Search Artwork or Artist" class="input" />
-                </div>
+            <div class="chip" data-chip="Painting" role="button" aria-pressed="false">Painting</div>
+            <div class="chip" data-chip="Sculpture" role="button" aria-pressed="false">Sculpture</div>
+            <div class="chip" data-chip="Photography" role="button" aria-pressed="false">Photography</div>
 
-                <div class="filter">
-                    <h3>Gallery Status</h3>
-                    <label><input type="checkbox" checked /> Open</label>
-                    <label><input type="checkbox" /> Featured</label>
-                </div>
+            <select id="sortSelect" class="sort-select" aria-label="Sort by">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="title-asc">Title: A → Z</option>
+            </select>
+        </div>
+    </section>
 
-                <div class="filter">
-                    <h3>Categories</h3>
-                    <button class="btn ghost small">Paintings</button>
-                    <button class="btn ghost small">Sculptures</button>
-                    <button class="btn ghost small">Photography</button>
-                </div>
-            </aside>
 
-            <!-- Main Content -->
-            <main class="art-list">
-                <div class="top-bar">
-                    <span>1–10 of 1,000 results</span>
-                    <select class="select sort">
-                        <option>Most Popular</option>
-                        <option>Newest</option>
-                        <option>Top Rated</option>
-                    </select>
-                </div>
-
+    <section id="gallery" class="section">
+        <div class="container">
+            <div id="masonry" class="masonry" aria-live="polite">
                 @foreach (var art in demo)
                 {
-                    <div class="art-item">
-                        <img src="@art.ImageUrl" alt="@art.Title" class="thumb" />
-                        <div class="info">
-                            <h2>@art.Title</h2>
-                            <div class="rating">
-                                <span>★★★★★</span>
-                                <span class="muted">Rating</span>
-                                <span class="muted">Reviews: @art.ReviewsCount</span>
+                    <article class="card"
+                             data-id="@art.Id"
+                             data-title="@art.Title.ToLowerInvariant()"
+                             data-artist="@art.Artist.ToLowerInvariant()"
+                             data-medium="@art.Medium.ToLowerInvariant()"
+                             data-category="@art.Category"
+                             data-price="@(art.Price?.ToString() ?? "")"
+                             tabindex="0"
+                             aria-label="@($"{art.Title} by {art.Artist}")">
+                        <img src="@art.ImageUrl"
+                             alt="@art.Alt"
+                             loading="lazy" />
+                        <div class="card-body">
+                            <div class="meta">
+                                <div>
+                                    <div class="title">@art.Title</div>
+                                    <div class="artist">@art.Artist</div>
+                                </div>
                             </div>
-                            <div class="tags">
-                                <span>@art.Category</span>
-                                <span>@art.Location</span>
-                                <span>@art.Type</span>
+                            <div class="meta" style="margin-top:.35rem">
+                                <span class="badge" title="Category">@art.Category</span>
+                                <span class="badge" title="Medium">@art.Medium</span>
                             </div>
-                            <div class="actions">
-                                <button class="btn">View</button>
-                                <button class="btn ghost">Add to Collection</button>
+                            <div class="actions" style="margin-top:.6rem">
+                                <button class="like" data-open="@art.Id" aria-label="View details for @art.Title">
+                                    View
+                                </button>
+                                <button class="like ghost" aria-label="Add to collection">
+                                    Add to Collection
+                                </button>
+                                <button class="like" data-like="@art.Id" aria-pressed="false" aria-label="Like @art.Title">
+                                    ♥
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 }
-            </main>
+            </div>
+
+            <div class="load-more-wrap">
+                <button id="loadMore" class="load-more" aria-label="Load more artworks">Load more</button>
+            </div>
         </div>
-    </div>
+    </section>
+
 </section>
+<script>
+    (function () {
+      const grid = document.getElementById('masonry');
+      const cards = Array.from(grid.querySelectorAll('.card'));
+      const chips = Array.from(document.querySelectorAll('.chip'));
+      const search = document.getElementById('searchInput');
+      const sortSelect = document.getElementById('sortSelect');
+      const loadMoreBtn = document.getElementById('loadMore');
+      const PAGE_SIZE = 12;
+      let visibleCount = Math.min(PAGE_SIZE, cards.length);
+      let activeChips = new Set();
+
+      // Likes persistence
+      const likeKey = 'artfolio_likes';
+      const liked = new Set(JSON.parse(localStorage.getItem(likeKey) || '[]'));
+
+      function applyLikesScope(scope) {
+        scope.forEach(el => {
+          const id = el.getAttribute('data-like');
+          if (!id) return;
+          const isLiked = liked.has(id);
+          el.classList.toggle('liked', isLiked);
+          el.setAttribute('aria-pressed', String(isLiked));
+        });
+      }
+
+      applyLikesScope(Array.from(document.querySelectorAll('[data-like]')));
+
+      document.addEventListener('click', (e) => {
+        const likeBtn = e.target.closest('[data-like]');
+        if (likeBtn) {
+          const id = likeBtn.getAttribute('data-like');
+          if (liked.has(id)) liked.delete(id); else liked.add(id);
+          localStorage.setItem(likeKey, JSON.stringify(Array.from(liked)));
+          applyLikesScope([likeBtn, document.getElementById('lbLike')]);
+        }
+
+        const openBtn = e.target.closest('[data-open]');
+        if (openBtn) {
+          const id = openBtn.getAttribute('data-open');
+          const card = grid.querySelector(`.card[data-id="${id}"]`);
+          if (card) openLightbox(card);
+        }
+
+        const close = e.target.closest('[data-close]');
+        if (close) closeLightbox();
+      });
+
+      // Chips (category filters)
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const cat = chip.getAttribute('data-chip');
+          if (activeChips.has(cat)) {
+            activeChips.delete(cat);
+            chip.classList.remove('active');
+            chip.setAttribute('aria-pressed', 'false');
+          } else {
+            activeChips.add(cat);
+            chip.classList.add('active');
+            chip.setAttribute('aria-pressed', 'true');
+          }
+          filterAndRender();
+        });
+      });
+
+      // Search
+      search.addEventListener('input', () => {
+        filterAndRender();
+      });
+
+      // Sort
+      sortSelect.addEventListener('change', () => {
+        sortItems();
+        filterAndRender(true);
+      });
+
+      function sortItems() {
+        const mode = sortSelect.value;
+        cards.sort((a, b) => {
+          const pa = parseFloat(a.dataset.price || '0');
+          const pb = parseFloat(b.dataset.price || '0');
+          const ta = (a.dataset.title || '').toLowerCase();
+          const tb = (b.dataset.title || '').toLowerCase();
+
+          if (mode === 'price-asc') return pa - pb;
+          if (mode === 'price-desc') return pb - pa;
+          if (mode === 'title-asc') return ta.localeCompare(tb);
+          return 0; // featured (original)
+        });
+
+        // Re-append in sorted order
+        cards.forEach(c => grid.appendChild(c));
+      }
+
+      function filterAndRender(resetCount = false) {
+        const q = (search.value || '').trim().toLowerCase();
+        const hasChipFilter = activeChips.size > 0;
+        const match = (el) => {
+          const hitText = (el.dataset.title + ' ' + el.dataset.artist + ' ' + el.dataset.medium).includes(q);
+          const hitChip = !hasChipFilter || activeChips.has(el.dataset.category);
+          return (!q || hitText) && hitChip;
+        };
+
+        const filtered = cards.filter(match);
+
+        // Hide all
+        cards.forEach(c => c.style.display = 'none');
+
+        if (resetCount) visibleCount = Math.min(PAGE_SIZE, filtered.length);
+        const show = filtered.slice(0, visibleCount);
+
+        show.forEach(c => c.style.display = '');
+
+        loadMoreBtn.style.display = (visibleCount < filtered.length) ? '' : 'none';
+      }
+
+      // Initial render
+      filterAndRender(true);
+
+      // Load more
+      loadMoreBtn.addEventListener('click', () => {
+        const q = (search.value || '').trim().toLowerCase();
+        const hasChipFilter = activeChips.size > 0;
+        const match = (el) => {
+          const hitText = (el.dataset.title + ' ' + el.dataset.artist + ' ' + el.dataset.medium).includes(q);
+          const hitChip = !hasChipFilter || activeChips.has(el.dataset.category);
+          return (!q || hitText) && hitChip;
+        };
+        const filtered = cards.filter(match);
+        visibleCount = Math.min(visibleCount + PAGE_SIZE, filtered.length);
+        filterAndRender();
+      });
+
+      // Lightbox
+      const dlg = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbArtist = document.getElementById('lbArtist');
+      const lbMedium = document.getElementById('lbMedium');
+      const lbPrice = document.getElementById('lbPrice');
+      const lbLike = document.getElementById('lbLike');
+
+      function openLightbox(card) {
+        const id = card.dataset.id;
+        const img = card.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt || '';
+        lbTitle.textContent = card.dataset.title?.replace(/\b\w/g, m => m.toUpperCase()) || '';
+        lbArtist.textContent = 'By ' + (card.dataset.artist?.replace(/\b\w/g, m => m.toUpperCase()) || '');
+        lbMedium.textContent = 'Medium: ' + (card.dataset.medium || '');
+        lbPrice.textContent = card.dataset.price ? ('$' + Number(card.dataset.price).toLocaleString()) : 'Inquire';
+        lbLike.setAttribute('data-like', id);
+        lbLike.classList.toggle('liked', liked.has(id));
+        lbLike.setAttribute('aria-pressed', String(liked.has(id)));
+        if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', 'open');
+      }
+
+      function closeLightbox() {
+        if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open');
+      }
+
+      dlg.addEventListener('click', (e) => {
+        const rect = dlg.getBoundingClientRect();
+        const inDialog = (
+          rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX && e.clientX <= rect.left + rect.width
+        );
+        if (!inDialog) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && dlg.hasAttribute('open')) closeLightbox();
+      });
+
+    })();
+</script>

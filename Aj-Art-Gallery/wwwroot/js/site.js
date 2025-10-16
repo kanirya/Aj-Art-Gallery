@@ -1,4 +1,19 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const header = document.querySelector('.site-header');
+let lastScroll = 0;
 
-// Write your JavaScript code.
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll <= 0) {
+        header.style.transform = 'translateY(0)';
+        return;
+    }
+
+    if (currentScroll > lastScroll) {
+        header.style.transform = 'translateY(-100%)'; // hide
+    } else {
+        header.style.transform = 'translateY(0)'; // show instantly when scrolling up
+    }
+
+    lastScroll = currentScroll;
+});

@@ -41,20 +41,19 @@ a {
     text-decoration: none;
 }
 
-    a:hover {
-        color: var(--primary);
-    }
+  
 
-/* Header */
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 40;
     backdrop-filter: saturate(120%) blur(10px);
     background: color-mix(in oklab, var(--bg) 75%, transparent);
     border-bottom: 1px solid var(--ring);
+    transition: transform 0.25s ease-in-out;
 }
-
 .nav {
     display: flex;
     align-items: center;

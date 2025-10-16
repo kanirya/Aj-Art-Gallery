@@ -20,10 +20,13 @@
             <div style="display:flex; align-items:center; justify-content:left; gap:40px; max-width:1200px; margin:0 auto;">
 
                 <!-- Logo Section -->
-                <div class="logo" style="display:flex; align-items:center; gap:10px; font-size:20px; font-weight:600;">
-                   <img src="/images/logo/logo.png" width="40" height="40"/>
-                    <span>AJ Gallery</span>
-                </div>
+                <a asp-controller="Home" asp-action="Index" >
+                    <div class="logo" style="display:flex; align-items:center; gap:10px; font-size:20px; font-weight:600;">
+                        <img src="/images/logo/logo.png" width="40" height="40" />
+                        <span>AJ Gallery</span>
+                    </div>
+                </a>
+               
 
                 <!-- Navigation -->
                 <nav class="nav-links mx-lg-2" aria-label="Sections" style="display:flex;  gap:40px;">
@@ -91,5 +94,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
-
 
