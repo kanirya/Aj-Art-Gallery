@@ -1,0 +1,546 @@
+﻿@{
+    ViewData["css"]="Artists";
+}
+    <!-- Header -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h2>Meet Our Artists</h2>
+            <p>Discover the visionaries and masters behind our legendary collection of contemporary and classical artworks</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <span class="filter-label">Filter by:</span>
+            <input type="text" class="search-box" id="searchBox" placeholder="Search artists...">
+            <button class="filter-btn active" data-filter="all">All Artists</button>
+            <button class="filter-btn" data-filter="painting">Painting</button>
+            <button class="filter-btn" data-filter="sculpture">Sculpture</button>
+            <button class="filter-btn" data-filter="digital">Digital Art</button>
+            <button class="filter-btn" data-filter="photography">Photography</button>
+        </div>
+    </section>
+
+    <!-- Featured Artist Section -->
+    <section class="featured-artist-section">
+        <div class="featured-artist-container">
+            <div class="featured-artist-image slide-in-left">
+                <img src="/placeholder.svg?height=500&width=400" alt="Featured Artist">
+            </div>
+            <div class="featured-artist-content slide-in-right">
+                <h3>Alexandra Chen</h3>
+                <p class="artist-specialty">Contemporary Abstract Expressionist</p>
+                <p>Alexandra Chen is a visionary artist whose bold use of color and dynamic compositions challenge the boundaries of perception. With over 20 years of experience, she has established herself as a leading figure in contemporary abstract art, with works featured in prestigious galleries worldwide.</p>
+
+                <div class="featured-artist-stats">
+                    <div class="featured-stat">
+                        <div class="featured-stat-number">150+</div>
+                        <div class="featured-stat-label">Artworks</div>
+                    </div>
+                    <div class="featured-stat">
+                        <div class="featured-stat-number">45</div>
+                        <div class="featured-stat-label">Exhibitions</div>
+                    </div>
+                    <div class="featured-stat">
+                        <div class="featured-stat-number">$2.5M</div>
+                        <div class="featured-stat-label">Total Sales</div>
+                    </div>
+                    <div class="featured-stat">
+                        <div class="featured-stat-number">20+</div>
+                        <div class="featured-stat-label">Awards</div>
+                    </div>
+                </div>
+
+                <a href="#" class="featured-artist-btn">View Full Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Grid Section -->
+    <section class="artists-section" id="artists">
+        <h2 class="section-title fade-in">Our Talented Artists</h2>
+
+        <div class="artists-grid" id="artistsGrid">
+            <!-- Artist Card 1 -->
+            <div class="artist-card stagger-item" data-category="painting">
+                <div class="artist-image-wrapper">
+                    <img src="/placeholder.svg?height=350&width=320" alt="Marcus Rivera">
+                    <span class="artist-badge">Featured</span>
+                </div>
+                <div class="artist-content">
+                    <h3 class="artist-name">Marcus Rivera</h3>
+                    <p class="artist-specialty">Landscape Painter</p>
+                    <p class="artist-bio">Master of capturing ethereal landscapes with transcendent light and atmosphere. His works transport viewers to serene natural worlds.</p>
+
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <div class="stat-number">120</div>
+                            <div class="stat-label">Works</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">35</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$1.8M</div>
+                            <div class="stat-label">Sales</div>
+                        </div>
+                    </div>
+
+                    <div class="artist-mediums">
+                        <span class="medium-tag">Oil</span>
+                        <span class="medium-tag">Acrylic</span>
+                        <span class="medium-tag">Watercolor</span>
+                    </div>
+
+                    <div class="artist-footer">
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Instagram">📷</a>
+                            <a href="#" class="social-link" title="Website">🌐</a>
+                            <a href="#" class="social-link" title="Email">✉️</a>
+                        </div>
+                        <a href="#" class="view-portfolio-btn">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 2 -->
+            <div class="artist-card stagger-item" data-category="sculpture">
+                <div class="artist-image-wrapper">
+                    <img src="/placeholder.svg?height=350&width=320" alt="Sofia Bergström">
+                    <span class="artist-badge">Rising Star</span>
+                </div>
+                <div class="artist-content">
+                    <h3 class="artist-name">Sofia Bergström</h3>
+                    <p class="artist-specialty">Contemporary Sculptor</p>
+                    <p class="artist-bio">Creates immersive installations that blend technology with traditional sculptural forms, pushing artistic boundaries.</p>
+
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <div class="stat-number">85</div>
+                            <div class="stat-label">Works</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">28</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$1.2M</div>
+                            <div class="stat-label">Sales</div>
+                        </div>
+                    </div>
+
+                    <div class="artist-mediums">
+                        <span class="medium-tag">Bronze</span>
+                        <span class="medium-tag">Stone</span>
+                        <span class="medium-tag">Mixed Media</span>
+                    </div>
+
+                    <div class="artist-footer">
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Instagram">📷</a>
+                            <a href="#" class="social-link" title="Website">🌐</a>
+                            <a href="#" class="social-link" title="Email">✉️</a>
+                        </div>
+                        <a href="#" class="view-portfolio-btn">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 3 -->
+            <div class="artist-card stagger-item" data-category="digital">
+                <div class="artist-image-wrapper">
+                    <img src="/placeholder.svg?height=350&width=320" alt="James Mitchell">
+                </div>
+                <div class="artist-content">
+                    <h3 class="artist-name">James Mitchell</h3>
+                    <p class="artist-specialty">Digital Artist & Animator</p>
+                    <p class="artist-bio">Pioneer in digital art, creating stunning visual experiences through cutting-edge technology and artistic vision.</p>
+
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <div class="stat-number">200</div>
+                            <div class="stat-label">Works</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">42</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$2.1M</div>
+                            <div class="stat-label">Sales</div>
+                        </div>
+                    </div>
+
+                    <div class="artist-mediums">
+                        <span class="medium-tag">3D</span>
+                        <span class="medium-tag">Animation</span>
+                        <span class="medium-tag">VR</span>
+                    </div>
+
+                    <div class="artist-footer">
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Instagram">📷</a>
+                            <a href="#" class="social-link" title="Website">🌐</a>
+                            <a href="#" class="social-link" title="Email">✉️</a>
+                        </div>
+                        <a href="#" class="view-portfolio-btn">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 4 -->
+            <div class="artist-card stagger-item" data-category="painting">
+                <div class="artist-image-wrapper">
+                    <img src="/placeholder.svg?height=350&width=320" alt="Elena Rossi">
+                </div>
+                <div class="artist-content">
+                    <h3 class="artist-name">Elena Rossi</h3>
+                    <p class="artist-specialty">Portrait & Figure Painter</p>
+                    <p class="artist-bio">Renowned for her expressive portraits that capture the essence and emotion of her subjects with remarkable depth.</p>
+
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <div class="stat-number">95</div>
+                            <div class="stat-label">Works</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">32</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$1.5M</div>
+                            <div class="stat-label">Sales</div>
+                        </div>
+                    </div>
+
+                    <div class="artist-mediums">
+                        <span class="medium-tag">Oil</span>
+                        <span class="medium-tag">Charcoal</span>
+                        <span class="medium-tag">Pastel</span>
+                    </div>
+
+                    <div class="artist-footer">
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Instagram">📷</a>
+                            <a href="#" class="social-link" title="Website">🌐</a>
+                            <a href="#" class="social-link" title="Email">✉️</a>
+                        </div>
+                        <a href="#" class="view-portfolio-btn">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 5 -->
+            <div class="artist-card stagger-item" data-category="photography">
+                <div class="artist-image-wrapper">
+                    <img src="/placeholder.svg?height=350&width=320" alt="David Kowalski">
+                </div>
+                <div class="artist-content">
+                    <h3 class="artist-name">David Kowalski</h3>
+                    <p class="artist-specialty">Fine Art Photographer</p>
+                    <p class="artist-bio">Captures the raw beauty of nature and urban landscapes through a unique lens, creating thought-provoking visual narratives.</p>
+
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <div class="stat-number">180</div>
+                            <div class="stat-label">Works</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">38</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$1.9M</div>
+                            <div class="stat-label">Sales</div>
+                        </div>
+                    </div>
+
+                    <div class="artist-mediums">
+                        <span class="medium-tag">Photography</span>
+                        <span class="medium-tag">Digital</span>
+                        <span class="medium-tag">Print</span>
+                    </div>
+
+                    <div class="artist-footer">
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Instagram">📷</a>
+                            <a href="#" class="social-link" title="Website">🌐</a>
+                            <a href="#" class="social-link" title="Email">✉️</a>
+                        </div>
+                        <a href="#" class="view-portfolio-btn">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 6 -->
+            <div class="artist-card stagger-item" data-category="sculpture">
+                <div class="artist-image-wrapper">
+                    <img src="/placeholder.svg?height=350&width=320" alt="Isabella Santos">
+                </div>
+                <div class="artist-content">
+                    <h3 class="artist-name">Isabella Santos</h3>
+                    <p class="artist-specialty">Abstract Sculptor</p>
+                    <p class="artist-bio">Explores the intersection of form and space, creating dynamic sculptures that challenge spatial perception.</p>
+
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <div class="stat-number">72</div>
+                            <div class="stat-label">Works</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$1.1M</div>
+                            <div class="stat-label">Sales</div>
+                        </div>
+                    </div>
+
+                    <div class="artist-mediums">
+                        <span class="medium-tag">Steel</span>
+                        <span class="medium-tag">Concrete</span>
+                        <span class="medium-tag">Wood</span>
+                    </div>
+
+                    <div class="artist-footer">
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Instagram">📷</a>
+                            <a href="#" class="social-link" title="Website">🌐</a>
+                            <a href="#" class="social-link" title="Email">✉️</a>
+                        </div>
+                        <a href="#" class="view-portfolio-btn">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 7 -->
+            <div class="artist-card stagger-item" data-category="digital">
+                <div class="artist-image-wrapper">
+                    <img src="/placeholder.svg?height=350&width=320" alt="Lucas Chen">
+                </div>
+                <div class="artist-content">
+                    <h3 class="artist-name">Lucas Chen</h3>
+                    <p class="artist-specialty">NFT & Generative Artist</p>
+                    <p class="artist-bio">Pioneering the future of digital art through blockchain technology and generative algorithms.</p>
+
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <div class="stat-number">350</div>
+                            <div class="stat-label">Works</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$3.2M</div>
+                            <div class="stat-label">Sales</div>
+                        </div>
+                    </div>
+
+                    <div class="artist-mediums">
+                        <span class="medium-tag">NFT</span>
+                        <span class="medium-tag">Generative</span>
+                        <span class="medium-tag">Blockchain</span>
+                    </div>
+
+                    <div class="artist-footer">
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Instagram">📷</a>
+                            <a href="#" class="social-link" title="Website">🌐</a>
+                            <a href="#" class="social-link" title="Email">✉️</a>
+                        </div>
+                        <a href="#" class="view-portfolio-btn">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 8 -->
+            <div class="artist-card stagger-item" data-category="painting">
+                <div class="artist-image-wrapper">
+                    <img src="/placeholder.svg?height=350&width=320" alt="Yuki Tanaka">
+                </div>
+                <div class="artist-content">
+                    <h3 class="artist-name">Yuki Tanaka</h3>
+                    <p class="artist-specialty">Traditional & Modern Fusion</p>
+                    <p class="artist-bio">Blends traditional Japanese techniques with contemporary aesthetics, creating a unique artistic voice.</p>
+
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <div class="stat-number">110</div>
+                            <div class="stat-label">Works</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">30</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$1.4M</div>
+                            <div class="stat-label">Sales</div>
+                        </div>
+                    </div>
+
+                    <div class="artist-mediums">
+                        <span class="medium-tag">Ink</span>
+                        <span class="medium-tag">Watercolor</span>
+                        <span class="medium-tag">Mixed</span>
+                    </div>
+
+                    <div class="artist-footer">
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Instagram">📷</a>
+                            <a href="#" class="social-link" title="Website">🌐</a>
+                            <a href="#" class="social-link" title="Email">✉️</a>
+                        </div>
+                        <a href="#" class="view-portfolio-btn">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 9 -->
+            <div class="artist-card stagger-item" data-category="photography">
+                <div class="artist-image-wrapper">
+                    <img src="/placeholder.svg?height=350&width=320" alt="Amara Okonkwo">
+                </div>
+                <div class="artist-content">
+                    <h3 class="artist-name">Amara Okonkwo</h3>
+                    <p class="artist-specialty">Documentary Photographer</p>
+                    <p class="artist-bio">Captures powerful human stories through documentary photography, creating impactful visual narratives.</p>
+
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <div class="stat-number">160</div>
+                            <div class="stat-label">Works</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">36</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$1.7M</div>
+                            <div class="stat-label">Sales</div>
+                        </div>
+                    </div>
+
+                    <div class="artist-mediums">
+                        <span class="medium-tag">Photography</span>
+                        <span class="medium-tag">Documentary</span>
+                        <span class="medium-tag">Video</span>
+                    </div>
+
+                    <div class="artist-footer">
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Instagram">📷</a>
+                            <a href="#" class="social-link" title="Website">🌐</a>
+                            <a href="#" class="social-link" title="Email">✉️</a>
+                        </div>
+                        <a href="#" class="view-portfolio-btn">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2025 Artistry Gallery. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">Contact Us</a>
+        </p>
+    </footer>
+
+    <!-- Scroll Animation & Filter Script -->
+    <script>
+        class ScrollAnimations {
+            constructor() {
+                this.observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                this.init();
+            }
+
+            init() {
+                this.setupIntersectionObserver();
+                this.setupFilters();
+                this.setupSearch();
+            }
+
+            setupIntersectionObserver() {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            if (entry.target.classList.contains('fade-in') ||
+                                entry.target.classList.contains('slide-in-left') ||
+                                entry.target.classList.contains('slide-in-right') ||
+                                entry.target.classList.contains('scale-up')) {
+                                observer.unobserve(entry.target);
+                            }
+                        }
+                    });
+                }, this.observerOptions);
+
+                document.querySelectorAll(
+                    '.fade-in, .slide-in-left, .slide-in-right, .scale-up, .stagger-item'
+                ).forEach(el => observer.observe(el));
+            }
+
+            setupFilters() {
+                const filterBtns = document.querySelectorAll('.filter-btn');
+                const artistCards = document.querySelectorAll('.artist-card');
+
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+
+                        const filter = btn.getAttribute('data-filter');
+
+                        artistCards.forEach(card => {
+                            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                                card.style.display = 'block';
+                                setTimeout(() => card.classList.add('visible'), 10);
+                            } else {
+                                card.style.display = 'none';
+                                card.classList.remove('visible');
+                            }
+                        });
+                    });
+                });
+            }
+
+            setupSearch() {
+                const searchBox = document.getElementById('searchBox');
+                const artistCards = document.querySelectorAll('.artist-card');
+
+                searchBox.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+
+                    artistCards.forEach(card => {
+                        const artistName = card.querySelector('.artist-name').textContent.toLowerCase();
+                        const specialty = card.querySelector('.artist-specialty').textContent.toLowerCase();
+
+                        if (artistName.includes(searchTerm) || specialty.includes(searchTerm)) {
+                            card.style.display = 'block';
+                            setTimeout(() => card.classList.add('visible'), 10);
+                        } else {
+                            card.style.display = 'none';
+                            card.classList.remove('visible');
+                        }
+                    });
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new ScrollAnimations();
+        });
+    </script>

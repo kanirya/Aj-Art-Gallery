@@ -23,3 +23,21 @@
         transform: translate(-2px, -2px);
     }
     /*Explore page css*/
+.custom-hr {
+  margin-left:30px;
+  margin-right:30px;
+    height: 2px; /* thin line */
+    border: none;
+    border-radius: 2px;
+    background-color: gray;
+    opacity: 0.4;
+    margin: 0px auto; /* centers it horizontally */
+}
+
+hr{
+    margin-left:30px;
+    margin-right:30px;
+}
+
+
+/*page animation */

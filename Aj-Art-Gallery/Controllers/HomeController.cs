@@ -22,7 +22,10 @@ namespace Aj_Art_Gallery.Controllers
         {
                        return View();
         }
-
+        public IActionResult Artists()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
