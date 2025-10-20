@@ -1,5 +1,7 @@
 ﻿@{
     ViewData["css"]="Artists";
+    ViewData["Title"]="Artists";
+    ViewData["HideHeader"]=true;
 }
     <!-- Header -->
 
@@ -10,25 +12,26 @@
             <p>Discover the visionaries and masters behind our legendary collection of contemporary and classical artworks</p>
         </div>
     </section>
+<section class="filter-section">
+    <div class="filter-container">
+        <a href="/" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
 
-    <!-- Filter Section -->
-    <section class="filter-section">
-        <div class="filter-container">
-            <span class="filter-label">Filter by:</span>
-            <input type="text" class="search-box" id="searchBox" placeholder="Search artists...">
-            <button class="filter-btn active" data-filter="all">All Artists</button>
-            <button class="filter-btn" data-filter="painting">Painting</button>
-            <button class="filter-btn" data-filter="sculpture">Sculpture</button>
-            <button class="filter-btn" data-filter="digital">Digital Art</button>
-            <button class="filter-btn" data-filter="photography">Photography</button>
+        <div class="search-wrapper">
+           
+
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+            <input type="text" class="search-box" id="searchBox" placeholder="Search artist name, category or style...">
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Featured Artist Section -->
     <section class="featured-artist-section">
         <div class="featured-artist-container">
             <div class="featured-artist-image slide-in-left">
-                <img src="/placeholder.svg?height=500&width=400" alt="Featured Artist">
+                <img src="~/images/art1.jpeg" alt="Featured Artist">
             </div>
             <div class="featured-artist-content slide-in-right">
                 <h3>Alexandra Chen</h3>
@@ -54,7 +57,7 @@
                     </div>
                 </div>
 
-                <a href="#" class="featured-artist-btn">View Full Portfolio</a>
+                <a href="#" class="custom-btn">View Full Portfolio</a>
             </div>
         </div>
     </section>
@@ -110,7 +113,7 @@
             <!-- Artist Card 2 -->
             <div class="artist-card stagger-item" data-category="sculpture">
                 <div class="artist-image-wrapper">
-                    <img src="/placeholder.svg?height=350&width=320" alt="Sofia Bergström">
+                    <img src="~/images/art1.jpeg" alt="Sofia Bergström">
                     <span class="artist-badge">Rising Star</span>
                 </div>
                 <div class="artist-content">
@@ -516,29 +519,36 @@
                     });
                 });
             }
+                setupSearch() {
+      const searchBox = document.getElementById('searchBox');
+      const artistCards = document.querySelectorAll('.artist-card');
 
-            setupSearch() {
-                const searchBox = document.getElementById('searchBox');
-                const artistCards = document.querySelectorAll('.artist-card');
+      searchBox.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase().trim();
 
-                searchBox.addEventListener('input', (e) => {
-                    const searchTerm = e.target.value.toLowerCase();
+        artistCards.forEach(card => {
+          const artistName = card.querySelector('.artist-name').textContent.toLowerCase();
+          const specialty = card.querySelector('.artist-specialty').textContent.toLowerCase();
+          const category = card.getAttribute('data-category').toLowerCase();
+          const bio = card.querySelector('.artist-bio').textContent.toLowerCase();
 
-                    artistCards.forEach(card => {
-                        const artistName = card.querySelector('.artist-name').textContent.toLowerCase();
-                        const specialty = card.querySelector('.artist-specialty').textContent.toLowerCase();
-
-                        if (artistName.includes(searchTerm) || specialty.includes(searchTerm)) {
-                            card.style.display = 'block';
-                            setTimeout(() => card.classList.add('visible'), 10);
-                        } else {
-                            card.style.display = 'none';
-                            card.classList.remove('visible');
-                        }
-                    });
-                });
-            }
-        }
+          if (
+            artistName.includes(searchTerm) ||
+            specialty.includes(searchTerm) ||
+            category.includes(searchTerm) ||
+            bio.includes(searchTerm)
+          ) {
+            card.style.display = 'block';
+            setTimeout(() => card.classList.add('visible'), 10);
+          } else {
+            card.style.display = 'none';
+            card.classList.remove('visible');
+          }
+        });
+      });
+    }
+    }
+          
 
         document.addEventListener('DOMContentLoaded', () => {
             new ScrollAnimations();
