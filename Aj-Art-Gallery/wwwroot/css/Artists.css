@@ -221,6 +221,7 @@ header {
     justify-content: center;
     height: 45px; /* ✅ matches input height for alignment */
     width: 45px;
+    align-self: center;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -261,10 +262,10 @@ header {
 
 /* Input box */
 .search-box {
-    padding: 0.6rem 1.3rem 0.6rem 2.5rem;
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 25px;
+    border-radius: 15px;
     color: var(--text);
     width: 100%;
     transition: var(--transition);
@@ -273,8 +274,8 @@ header {
 
     .search-box:focus {
         outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        border: 2px solid #333;
+       
     }
 
     .search-box::placeholder {
@@ -303,7 +304,7 @@ header {
 
     .search-icon {
         left: 14px;
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 
    
@@ -312,12 +313,15 @@ header {
 /* Responsive: very small screens */
 @media (max-width: 480px) {
     .search-box {
-        padding: 0.5rem 1rem 0.5rem 2.3rem;
+        padding: 0.5rem 1rem 0.5rem 1.8rem;
     }
 
     .search-icon {
-        left: 12px;
-        font-size: 0.9rem;
+        left: 10px;
+        font-size: 0.7rem;
+    }
+    .back-btn {
+      display:none;
     }
 }
 
@@ -751,7 +755,7 @@ footer {
     }
 
     .filter-container {
-        flex-direction: column;
+        flex-direction: row;
         align-items: stretch;
     }
 

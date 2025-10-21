@@ -894,4 +894,52 @@ a {
             width: 200px;
             height: 200px;
         }
+        .site-header{
+            display:none;
+        }
+        .main-content {
+            margin-top: 0 !important;
+            margin:0px;
+        }
+
     }
+.mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--surface);
+    border-top: 1px solid var(--ring);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+}
+
+    .mobile-nav a {
+        flex: 1;
+        text-align: center;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        transition: 0.3s;
+    }
+
+        .mobile-nav a i {
+            font-size: 1.2rem;
+        }
+
+        .mobile-nav a.active {
+            color: var(--primary);
+        }
+
+        .mobile-nav a:hover {
+            color: var(--primary);
+        }
