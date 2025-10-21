@@ -172,7 +172,7 @@ a {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, .8fr);
     gap: .8rem;
 }
 
@@ -220,7 +220,7 @@ a {
     gap: .5rem;
     background: var(--surface);
     border: 1px solid var(--ring);
-    border-radius: 999px;
+    border-radius: 12px;
     padding: .5rem .8rem;
 }
 
@@ -623,7 +623,7 @@ a {
     }
 
     #artCategory {
-        padding: 3rem 0;
+        padding: 0rem 0;
     }
 
         #artCategory h4 {
@@ -822,7 +822,7 @@ a {
     }
 
     #featuredArtist {
-        padding: 3rem 0;
+        padding: 1rem 0;
     }
 
         #featuredArtist h4 {
@@ -853,7 +853,11 @@ a {
             transform: translateY(-3px);
             box-shadow: 8px 8px 0px rgba(0,0,0,0.35);
         }
-
+        @media(max-width:500px){
+            .artist-card{
+                padding:1rem 0 1rem 0;
+            }
+        }
     .artist-image img {
         width: 280px;
         height: 280px;
@@ -883,8 +887,13 @@ a {
 
 
 
+.back-btn {
+}
 
     @media (max-width: 768px) {
+        .back-btn{
+            display:none;
+        }
         .artist-card {
             flex-direction: column;
             text-align: center;
@@ -943,3 +952,4 @@ a {
         .mobile-nav a:hover {
             color: var(--primary);
         }
+
