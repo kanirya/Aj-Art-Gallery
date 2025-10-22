@@ -78,11 +78,11 @@
         
             <div class="container py-4">
                
-                <div class="row g-4 justify-content-center">
+                <div class="row g-2 justify-content-center">
                     @{
                         for (int i = 1; i <= 8; i++)
                         {
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-center">
+                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-center">
                                 <div class="featured-art-card">
                                     <div class="art-image">
                                         <img src="~/images/art2.jpeg" alt="feature art work" />
@@ -132,7 +132,7 @@
                         A contemporary painter blending abstract expressionism with realism.
                         His works explore light, human emotion, and the tension between chaos and order.
                     </p>
-                    <button class="like ghost">View Artworks</button>
+                    <a asp-action="Artists" class="like ghost">More Artists</a>
                 </div>
             </div>
         </div>

@@ -20,10 +20,11 @@ namespace Aj_Art_Gallery
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseStaticFiles();
+       
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",

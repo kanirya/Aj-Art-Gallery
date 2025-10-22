@@ -76,7 +76,7 @@
 
 
     <section id="gallery" class="section">
-        <div class="container">
+        <div class="">
             <div id="masonry" class="masonry" aria-live="polite">
                 @foreach (var art in demo)
                 {
@@ -103,17 +103,7 @@
                                 <span class="badge" title="Category">@art.Category</span>
                                 <span class="badge" title="Medium">@art.Medium</span>
                             </div>
-                            <div class="actions" style="margin-top:.6rem">
-                                <button class="like" data-open="@art.Id" aria-label="View details for @art.Title">
-                                    View
-                                </button>
-                                <button class="like ghost" aria-label="Add to collection">
-                                    Add to Collection
-                                </button>
-                                <button class="like" data-like="@art.Id" aria-pressed="false" aria-label="Like @art.Title">
-                                    ♥
-                                </button>
-                            </div>
+                           
                         </div>
                     </article>
                 }
