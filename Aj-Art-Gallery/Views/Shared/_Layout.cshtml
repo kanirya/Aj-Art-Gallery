@@ -24,7 +24,54 @@
 
     <link rel="stylesheet" href="~/css/@(title).css" />
 
- 
+<style>
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: #fff;
+            border-top: 1px solid #eaeaea;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -3px 15px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+
+            .mobile-nav a {
+                flex: 1;
+                text-align: center;
+                color: #777;
+                transition: all 0.15s ease-in-out;
+                transform: translateY(0);
+            }
+
+                .mobile-nav a i {
+                    font-size: 1.2rem;
+                    transition: all 0.15s ease-in-out;
+                }
+
+                .mobile-nav a:active {
+                    transform: translateY(-1px) scale(0.95);
+                }
+
+                .mobile-nav a.active {
+                    color: #000;
+                    transform: translateY(-4px);
+                }
+
+                    .mobile-nav a.active i {
+                        font-weight: 900;
+                        transform: scale(1.15);
+                    }
+
+                .mobile-nav a:hover {
+                    color: #000;
+                }
+
+</style>
 
 </head>
 <body>
@@ -37,8 +84,7 @@
 
 
 
-                    <div style="display:flex; align-items:center; justify-content:left; gap:40px; max-width:1200px; margin:0 auto;">
-
+                  
                         <!-- Logo Section -->
                         <a asp-controller="Home" asp-action="Index">
                             <div class="logo" style="display:flex; align-items:center; gap:10px; font-size:20px; font-weight:600;">
@@ -50,16 +96,16 @@
 
                         <!-- Navigation -->
                         <nav class="nav-links mx-lg-2" aria-label="Sections" style="display:flex;  gap:40px;">
-                            <a href="#" style=" text-decoration:none; font-size:16px; font-weight:500;">Home</a>
-                            <a href="#" style=" text-decoration:none; font-size:16px; font-weight:500;">Exhibitions</a>
+                            <a href="/" style=" text-decoration:none; font-size:16px; font-weight:500;">Home</a>
+                            <a asp-action="Explore" style=" text-decoration:none; font-size:16px; font-weight:500;">Explore</a>
                             <a asp-action="Artists" style=" text-decoration:none; font-size:16px; font-weight:500;">Artists</a>
-                            <a href="#" style=" text-decoration:none; font-size:16px; font-weight:500;">Events</a>
+                            <a asp-action="About" style=" text-decoration:none; font-size:16px; font-weight:500;">About us</a>
                         </nav>
 
                     </div>
-                    <button class="custom-btn">LOG IN</button>
+                  
 
-                </div>
+                
 
 
 
@@ -114,19 +160,27 @@
             </nav>
         </div>
     </footer>
-    <!-- Mobile Bottom Navigation -->
     <nav class="mobile-nav d-md-none">
-        <a asp-controller="Home" asp-action="Index" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">
-            <i class="fa-solid fa-house"></i>
-        </a>
+    
+
+            <a asp-controller="Home" asp-action="Index" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">
+               <i class='fa-solid fa-house'></i>
+                      
+            </a>
+
+
+       
+
+
+
         <a asp-controller="Home" asp-action="Explore" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Explore" ? "active" : "")">
-            <i class="fa-solid fa-compass"></i>
+            <i class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Explore" ? "fa-solid fa-compass" : "fa-regular fa-compass")"></i>
         </a>
         <a asp-controller="Home" asp-action="Artists" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Artists" ? "active" : "")">
-            <i class="fa-solid fa-palette"></i>
+            <i class="fa-solid fa-palette" ></i>
         </a>
-        <a asp-controller="Account" asp-action="Profile" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Profile" ? "active" : "")">
-            <i class="fa-solid fa-user"></i>
+        <a asp-controller="Home" asp-action="About" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")">
+            <i class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Profile" ? "fa-solid fa-user" : "fa-regular fa-user")"></i>
         </a>
     </nav>
 
