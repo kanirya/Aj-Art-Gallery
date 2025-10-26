@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Art Gallery";
     Layout = "_Layout"; // Remove or change if your layout differs
+    ViewData["css"]="Index";
 }
 
 @{
@@ -36,12 +37,12 @@
                 </p>
                 <div style="display:flex; gap:.6rem; margin-top:1rem">
                     <a class="custom-btn" asp-action="Explore">Explore Art</a>
-                    
+
                 </div>
             </div>
             <aside class="hero-card" aria-label="Featured Works Preview">
                 <div class="hero-grid">
-                    
+
                     <img src="~/images/art1.jpeg" alt="Ocean-inspired abstract" loading="lazy" />
                     <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Minimal sculpture in white" loading="lazy" />
                     <img src="~/images/art2.jpeg" alt="Deep blue abstract painting" loading="lazy" />
@@ -50,8 +51,8 @@
         </div>
     </section>
 
-   
-   
+
+
     <dialog id="lightbox" class="lightbox" aria-label="Artwork detail">
         <button class="close-x" data-close aria-label="Close">✕</button>
         <div class="lightbox-grid">
@@ -76,28 +77,28 @@
 
     <div class="container">
         <h3 class="mt-1">Explore Featured Artworks</h3>
-        
-            <div class="container py-4">
-               
-                <div class="row g-2 justify-content-center">
-                    @{
-                        for (int i = 1; i <= 8; i++)
-                        {
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-center">
-                                <div class="featured-art-card">
-                                    <div class="art-image">
-                                        <img src="~/images/art2.jpeg" alt="feature art work" />
-                                    </div>
-                                    <div class="art-info">
-                                        <p class="title">Timeless</p>
-                                        <p class="subtitle">By Danish Kaneria</p>
-                                    </div>
+
+        <div class="container py-4">
+
+            <div class="row g-2 justify-content-center">
+                @{
+                    for (int i = 1; i <= 8; i++)
+                    {
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-center">
+                            <div class="featured-art-card">
+                                <div class="art-image">
+                                    <img src="~/images/art2.jpeg" alt="feature art work" />
+                                </div>
+                                <div class="art-info">
+                                    <p class="title">Timeless</p>
+                                    <p class="subtitle">By Danish Kaneria</p>
                                 </div>
                             </div>
-                        }
+                        </div>
                     }
-                </div>
+                }
             </div>
+        </div>
 
 
     </div>
@@ -108,7 +109,7 @@
             <h4>Art Categories</h4>
             <div class="category-meta">
                 @{
-                    foreach(var item in artGategory)
+                    foreach (var item in artGategory)
                     {
                         <span class="category-badge">@item</span>
                     }
@@ -117,9 +118,157 @@
         </div>
     </section>
 
+    <!-- NEW: Gallery Stats Section -->
+    <hr class="" />
+    <section id="galleryStats" class="stats-section">
+        <div class="container py-4">
+            <h3 style="text-align: center; margin-bottom: 2rem;">By The Numbers</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Artworks</div>
+                    <p class="stat-description">Carefully curated pieces from emerging and established artists</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">800+</div>
+                    <div class="stat-label">Artists</div>
+                    <p class="stat-description">Talented creators from 45+ countries worldwide</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12K+</div>
+                    <div class="stat-label">Collectors</div>
+                    <p class="stat-description">Art enthusiasts building meaningful collections</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$2M+</div>
+                    <div class="stat-label">In Sales</div>
+                    <p class="stat-description">Supporting artists and collectors globally</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Upcoming Exhibitions Section -->
+    <hr class="" />
+    <section id="upcomingExhibitions" class="exhibitions-section">
+        <div class="container py-4">
+            <h3 style="margin-bottom: 2rem;">Upcoming Exhibitions</h3>
+            <div class="exhibitions-grid">
+                <div class="exhibition-card">
+                    <div class="exhibition-image">
+                        <img src="https://images.unsplash.com/photo-1561214115-6d2f1b0609fa?q=80&w=600&auto=format&fit=crop" alt="Abstract Horizons Exhibition" />
+                        <span class="exhibition-badge">March 15 - April 30</span>
+                    </div>
+                    <div class="exhibition-info">
+                        <h4>Abstract Horizons</h4>
+                        <p>Explore the intersection of color, form, and emotion through contemporary abstract works.</p>
+                        <a href="#" class="exhibition-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="exhibition-card">
+                    <div class="exhibition-image">
+                        <img src="https://images.unsplash.com/photo-1578926078328-123456789012?q=80&w=600&auto=format&fit=crop" alt="Sculptural Visions Exhibition" />
+                        <span class="exhibition-badge">April 5 - May 20</span>
+                    </div>
+                    <div class="exhibition-info">
+                        <h4>Sculptural Visions</h4>
+                        <p>Three-dimensional masterpieces that challenge perception and redefine space.</p>
+                        <a href="#" class="exhibition-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="exhibition-card">
+                    <div class="exhibition-image">
+                        <img src="https://images.unsplash.com/photo-1578926078328-987654321098?q=80&w=600&auto=format&fit=crop" alt="Digital Dreams Exhibition" />
+                        <span class="exhibition-badge">May 1 - June 15</span>
+                    </div>
+                    <div class="exhibition-info">
+                        <h4>Digital Dreams</h4>
+                        <p>Cutting-edge digital art and NFTs showcasing the future of creative expression.</p>
+                        <a href="#" class="exhibition-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Why Choose Us Section -->
+    <hr class="" />
+    <section id="whyChooseUs" class="why-choose-section">
+        <div class="container py-4">
+            <h3 style="text-align: center; margin-bottom: 2rem;">Why Choose Our Gallery</h3>
+            <div class="why-choose-grid">
+                <div class="why-card">
+                    <div class="why-icon">🎨</div>
+                    <h4>Curated Selection</h4>
+                    <p>Every piece is hand-selected by our expert team to ensure museum-quality standards.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🌍</div>
+                    <h4>Global Artists</h4>
+                    <p>Discover emerging and established artists from around the world in one place.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">✓</div>
+                    <h4>Authenticity Guaranteed</h4>
+                    <p>Every artwork comes with a certificate of authenticity and provenance documentation.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💬</div>
+                    <h4>Direct Artist Connection</h4>
+                    <p>Inquire directly with artists, commission custom works, and build lasting relationships.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📦</div>
+                    <h4>Secure Shipping</h4>
+                    <p>Professional packaging and insured shipping to ensure your art arrives safely.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🤝</div>
+                    <h4>Expert Support</h4>
+                    <p>Our team is here to help with collection advice, valuations, and art consultation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Testimonials Section -->
+    <hr class="" />
+    <section id="testimonials" class="testimonials-section">
+        <div class="container py-4">
+            <h3 style="text-align: center; margin-bottom: 2rem;">What Collectors Say</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I've been collecting art for 20 years, and this gallery has the finest curation I've seen. The quality and authenticity are unmatched."</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Mitchell</strong>
+                        <span>Art Collector, New York</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Finding emerging artists has never been easier. The platform is intuitive, and the support team is incredibly helpful."</p>
+                    <div class="testimonial-author">
+                        <strong>James Chen</strong>
+                        <span>Gallery Owner, San Francisco</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"As an artist, I appreciate how this gallery values and promotes our work. The exposure and sales have been fantastic."</p>
+                    <div class="testimonial-author">
+                        <strong>Elena Rodriguez</strong>
+                        <span>Contemporary Artist, Barcelona</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Newsletter Section -->
 
 
-    <hr class="  " />
+    <hr class="" />
     <section id="featuredArtist">
         <div class="container">
             <h4>Featured Artist</h4>
@@ -197,7 +346,37 @@
             </div>
         </div>
     </section>
+    @*     <hr class="" />
+    <section id="newsletter" class="newsletter-section">
+        <div class="container py-4">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h3>Stay Updated on New Collections</h3>
+                    <p>Subscribe to our newsletter and be the first to discover new artworks, exclusive exhibitions, and special collector events.</p>
+                </div>
+                <form class="newsletter-form" method="post" asp-action="Subscribe">
+                    <input type="email" placeholder="Enter your email" required aria-label="Email address" />
+                    <button type="submit" class="custom-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section> *@
 
+    <section class="animated-drawing-section">
+        <div class="drawing-container">
+            <div class="drawing-header">
+                <h2>Artistic Expression</h2>
+                <p>Watch as our gallery brings art to life</p>
+            </div>
+
+            <div class="canvas-wrapper">
+                <canvas id="drawingCanvas"></canvas>
+                <div class="canvas-overlay"></div>
+            </div>
+
+           
+        </div>
+    </section>
 </main>
 
 <footer class="site-footer">
@@ -210,4 +389,338 @@
 </footer>
 
 
-  
+<script>
+    class FaceDrawingAnimation {
+        constructor(canvasId) {
+            this.canvas = document.getElementById(canvasId);
+            this.ctx = this.canvas.getContext('2d');
+            this.animationId = null;
+            this.isAnimating = false;
+            this.setupCanvas();
+            this.startAnimation();
+            this.setupControls();
+        }
+
+        setupCanvas() {
+            const dpr = window.devicePixelRatio || 1;
+            const rect = this.canvas.getBoundingClientRect();
+            this.canvas.width = rect.width * dpr;
+            this.canvas.height = rect.height * dpr;
+            this.ctx.scale(dpr, dpr);
+            this.width = rect.width;
+            this.height = rect.height;
+        }
+
+        setupControls() {
+            document.getElementById('replayBtn').addEventListener('click', () => {
+                this.startAnimation();
+            });
+        }
+
+        startAnimation() {
+            if (this.isAnimating) return;
+            this.isAnimating = true;
+            this.ctx.clearRect(0, 0, this.width, this.height);
+            this.animateDrawing();
+        }
+
+        animateDrawing() {
+            const startTime = Date.now();
+            const duration = 8000; // 8 seconds for full animation
+
+            const animate = () => {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                this.ctx.clearRect(0, 0, this.width, this.height);
+                this.drawFace(progress);
+
+                if (progress < 1) {
+                    this.animationId = requestAnimationFrame(animate);
+                } else {
+                    // Loop animation
+                    setTimeout(() => this.animateDrawing(), 2000);
+                }
+            };
+
+            animate();
+        }
+
+        drawFace(progress) {
+            const centerX = this.width / 2;
+            const centerY = this.height / 2;
+            const scale = Math.min(this.width, this.height) / 400;
+
+            // Draw decorative circles (0-10% of animation)
+            if (progress < 0.1) {
+                this.drawDecorativeCircles(centerX, centerY, scale, progress / 0.1);
+            } else {
+                this.drawDecorativeCircles(centerX, centerY, scale, 1);
+            }
+
+            // Draw head outline (10-20%)
+            if (progress >= 0.1) {
+                const headProgress = Math.min((progress - 0.1) / 0.1, 1);
+                this.drawHeadOutline(centerX, centerY, scale, headProgress);
+            }
+
+            // Draw hair (20-30%)
+            if (progress >= 0.2) {
+                const hairProgress = Math.min((progress - 0.2) / 0.1, 1);
+                this.drawHair(centerX, centerY, scale, hairProgress);
+            }
+
+            // Draw left eye (30-40%)
+            if (progress >= 0.3) {
+                const eyeProgress = Math.min((progress - 0.3) / 0.1, 1);
+                this.drawLeftEye(centerX, centerY, scale, eyeProgress);
+            }
+
+            // Draw right eye (40-50%)
+            if (progress >= 0.4) {
+                const eyeProgress = Math.min((progress - 0.4) / 0.1, 1);
+                this.drawRightEye(centerX, centerY, scale, eyeProgress);
+            }
+
+            // Draw nose (50-60%)
+            if (progress >= 0.5) {
+                const noseProgress = Math.min((progress - 0.5) / 0.1, 1);
+                this.drawNose(centerX, centerY, scale, noseProgress);
+            }
+
+            // Draw mouth (60-75%)
+            if (progress >= 0.6) {
+                const mouthProgress = Math.min((progress - 0.6) / 0.15, 1);
+                this.drawMouth(centerX, centerY, scale, mouthProgress);
+            }
+
+            // Draw facial features (75-90%)
+            if (progress >= 0.75) {
+                const featureProgress = Math.min((progress - 0.75) / 0.15, 1);
+                this.drawFacialFeatures(centerX, centerY, scale, featureProgress);
+            }
+
+            // Draw decorative elements (90-100%)
+            if (progress >= 0.9) {
+                const decorProgress = Math.min((progress - 0.9) / 0.1, 1);
+                this.drawDecorations(centerX, centerY, scale, decorProgress);
+            }
+        }
+
+        drawDecorativeCircles(x, y, scale, progress) {
+            this.ctx.strokeStyle = `rgba(100, 200, 255, ${0.3 * progress})`;
+            this.ctx.lineWidth = 2 * scale;
+
+            for (let i = 0; i < 3; i++) {
+                const radius = (150 + i * 50) * scale;
+                const currentRadius = radius * progress;
+                this.ctx.beginPath();
+                this.ctx.arc(x, y, currentRadius, 0, Math.PI * 2);
+                this.ctx.stroke();
+            }
+        }
+
+        drawHeadOutline(x, y, scale, progress) {
+            this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+            this.ctx.lineWidth = 3 * scale;
+            this.ctx.lineCap = 'round';
+            this.ctx.lineJoin = 'round';
+
+            const radius = 80 * scale;
+            const startAngle = -Math.PI / 2;
+            const endAngle = startAngle + Math.PI * 2 * progress;
+
+            this.ctx.beginPath();
+            this.ctx.arc(x, y, radius, startAngle, endAngle);
+            this.ctx.stroke();
+        }
+
+        drawHair(x, y, scale, progress) {
+            this.ctx.strokeStyle = 'rgba(200, 150, 100, 0.8)';
+            this.ctx.lineWidth = 4 * scale;
+            this.ctx.lineCap = 'round';
+
+            const hairPoints = [
+                { x: x - 60 * scale, y: y - 70 * scale },
+                { x: x - 40 * scale, y: y - 85 * scale },
+                { x: x, y: y - 90 * scale },
+                { x: x + 40 * scale, y: y - 85 * scale },
+                { x: x + 60 * scale, y: y - 70 * scale }
+            ];
+
+            const pointsToDraw = Math.ceil(hairPoints.length * progress);
+            for (let i = 0; i < pointsToDraw - 1; i++) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(hairPoints[i].x, hairPoints[i].y);
+                this.ctx.lineTo(hairPoints[i + 1].x, hairPoints[i + 1].y);
+                this.ctx.stroke();
+            }
+        }
+
+        drawLeftEye(x, y, scale, progress) {
+            this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+            this.ctx.fillStyle = 'rgba(50, 50, 50, 0.8)';
+            this.ctx.lineWidth = 2 * scale;
+
+            const eyeX = x - 30 * scale;
+            const eyeY = y - 20 * scale;
+            const eyeWidth = 25 * scale * progress;
+            const eyeHeight = 35 * scale * progress;
+
+            // Eye outline
+            this.ctx.beginPath();
+            this.ctx.ellipse(eyeX, eyeY, eyeWidth, eyeHeight, 0, 0, Math.PI * 2);
+            this.ctx.stroke();
+
+            if (progress > 0.5) {
+                // Iris
+                this.ctx.beginPath();
+                this.ctx.arc(eyeX, eyeY, eyeWidth * 0.6, 0, Math.PI * 2);
+                this.ctx.fill();
+
+                // Pupil
+                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                this.ctx.beginPath();
+                this.ctx.arc(eyeX + eyeWidth * 0.2, eyeY - eyeHeight * 0.2, eyeWidth * 0.2, 0, Math.PI * 2);
+                this.ctx.fill();
+            }
+        }
+
+        drawRightEye(x, y, scale, progress) {
+            this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+            this.ctx.fillStyle = 'rgba(50, 50, 50, 0.8)';
+            this.ctx.lineWidth = 2 * scale;
+
+            const eyeX = x + 30 * scale;
+            const eyeY = y - 20 * scale;
+            const eyeWidth = 25 * scale * progress;
+            const eyeHeight = 35 * scale * progress;
+
+            // Eye outline
+            this.ctx.beginPath();
+            this.ctx.ellipse(eyeX, eyeY, eyeWidth, eyeHeight, 0, 0, Math.PI * 2);
+            this.ctx.stroke();
+
+            if (progress > 0.5) {
+                // Iris
+                this.ctx.beginPath();
+                this.ctx.arc(eyeX, eyeY, eyeWidth * 0.6, 0, Math.PI * 2);
+                this.ctx.fill();
+
+                // Pupil
+                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                this.ctx.beginPath();
+                this.ctx.arc(eyeX - eyeWidth * 0.2, eyeY - eyeHeight * 0.2, eyeWidth * 0.2, 0, Math.PI * 2);
+                this.ctx.fill();
+            }
+        }
+
+        drawNose(x, y, scale, progress) {
+            this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+            this.ctx.lineWidth = 2 * scale;
+            this.ctx.lineCap = 'round';
+
+            const noseLength = 30 * scale * progress;
+            this.ctx.beginPath();
+            this.ctx.moveTo(x, y - 10 * scale);
+            this.ctx.lineTo(x, y - 10 * scale + noseLength);
+            this.ctx.stroke();
+
+            // Nose tip
+            if (progress > 0.5) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(x - 8 * scale, y - 10 * scale + noseLength);
+                this.ctx.lineTo(x + 8 * scale, y - 10 * scale + noseLength);
+                this.ctx.stroke();
+            }
+        }
+
+        drawMouth(x, y, scale, progress) {
+            this.ctx.strokeStyle = 'rgba(255, 150, 150, 0.8)';
+            this.ctx.lineWidth = 3 * scale;
+            this.ctx.lineCap = 'round';
+            this.ctx.lineJoin = 'round';
+
+            const mouthY = y + 30 * scale;
+            const mouthWidth = 40 * scale;
+
+            // Smile curve
+            this.ctx.beginPath();
+            this.ctx.moveTo(x - mouthWidth * progress, mouthY);
+            this.ctx.quadraticCurveTo(x, mouthY + 15 * scale * progress, x + mouthWidth * progress, mouthY);
+            this.ctx.stroke();
+        }
+
+        drawFacialFeatures(x, y, scale, progress) {
+            this.ctx.strokeStyle = `rgba(255, 200, 100, ${0.6 * progress})`;
+            this.ctx.lineWidth = 1.5 * scale;
+
+            // Blush on left cheek
+            this.ctx.beginPath();
+            this.ctx.arc(x - 50 * scale, y + 10 * scale, 15 * scale * progress, 0, Math.PI * 2);
+            this.ctx.stroke();
+
+            // Blush on right cheek
+            this.ctx.beginPath();
+            this.ctx.arc(x + 50 * scale, y + 10 * scale, 15 * scale * progress, 0, Math.PI * 2);
+            this.ctx.stroke();
+
+            // Eyebrows
+            this.ctx.strokeStyle = `rgba(200, 150, 100, ${0.8 * progress})`;
+            this.ctx.lineWidth = 2 * scale;
+
+            // Left eyebrow
+            this.ctx.beginPath();
+            this.ctx.moveTo(x - 45 * scale, y - 45 * scale);
+            this.ctx.quadraticCurveTo(x - 30 * scale, y - 50 * scale, x - 15 * scale, y - 45 * scale);
+            this.ctx.stroke();
+
+            // Right eyebrow
+            this.ctx.beginPath();
+            this.ctx.moveTo(x + 15 * scale, y - 45 * scale);
+            this.ctx.quadraticCurveTo(x + 30 * scale, y - 50 * scale, x + 45 * scale, y - 45 * scale);
+            this.ctx.stroke();
+        }
+
+        drawDecorations(x, y, scale, progress) {
+            this.ctx.strokeStyle = `rgba(100, 200, 255, ${0.5 * progress})`;
+            this.ctx.lineWidth = 1.5 * scale;
+
+            // Decorative lines around face
+            const decorPoints = 8;
+            for (let i = 0; i < decorPoints; i++) {
+                const angle = (Math.PI * 2 / decorPoints) * i;
+                const startRadius = 110 * scale;
+                const endRadius = 130 * scale;
+
+                const startX = x + Math.cos(angle) * startRadius;
+                const startY = y + Math.sin(angle) * startRadius;
+                const endX = x + Math.cos(angle) * endRadius * progress;
+                const endY = y + Math.sin(angle) * endRadius * progress;
+
+                this.ctx.beginPath();
+                this.ctx.moveTo(startX, startY);
+                this.ctx.lineTo(endX, endY);
+                this.ctx.stroke();
+            }
+
+            // Decorative dots
+            this.ctx.fillStyle = `rgba(255, 100, 200, ${0.6 * progress})`;
+            for (let i = 0; i < decorPoints; i++) {
+                const angle = (Math.PI * 2 / decorPoints) * i + Math.PI / decorPoints;
+                const radius = 135 * scale;
+                const dotX = x + Math.cos(angle) * radius;
+                const dotY = y + Math.sin(angle) * radius;
+
+                this.ctx.beginPath();
+                this.ctx.arc(dotX, dotY, 4 * scale * progress, 0, Math.PI * 2);
+                this.ctx.fill();
+            }
+        }
+    }
+
+    // Initialize animation when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+        new FaceDrawingAnimation('drawingCanvas');
+    });
+</script>
