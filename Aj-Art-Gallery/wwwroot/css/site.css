@@ -508,7 +508,7 @@ a {
 }
 
 .hero-card {
-    background: radial-gradient( 1200px 400px at 10% -10%, color-mix(in oklab, var(--primary) 14%, transparent), transparent ), linear-gradient( 0deg, color-mix(in oklab, var(--surface) 92%, transparent), color-mix(in oklab, var(--surface) 92%, transparent) );
+    background: radial-gradient( 1200px 400px at 10% -10%, color-mix(in oklab, var(--primary) 25%, transparent), transparent ), linear-gradient( 0deg, color-mix(in oklab, var(--surface) 92%, transparent), color-mix(in oklab, var(--surface) 92%, transparent) );
     border: 1px solid var(--ring);
     border-radius: var(--radius);
     padding: .8rem;
@@ -521,7 +521,6 @@ a {
     .hero-card:hover {
         transform: translateY(-10px) scale(1.03) rotateX(5deg) rotateY(-2deg);
         box-shadow: 0 25px 50px rgba(230, 0, 35, 0.15);
-        border-color: var(--primary);
     }
 
 .hero-grid {
@@ -531,7 +530,7 @@ a {
 }
 
     .hero-grid img {
-        border-radius: 10px;
+        border-radius: var(--radius);
         width: 100%;
         height: auto;
         display: block;

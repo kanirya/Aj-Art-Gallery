@@ -44,7 +44,11 @@
                 <div class="hero-grid">
 
                     <img src="~/images/art1.jpeg" alt="Ocean-inspired abstract" loading="lazy" />
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Minimal sculpture in white" loading="lazy" />
+                   
+                            <canvas id="drawingCanvas"></canvas>
+                            <div class="canvas-overlay"></div>
+                 
+                    @* <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Minimal sculpture in white" loading="lazy" /> *@
                     <img src="~/images/art2.jpeg" alt="Deep blue abstract painting" loading="lazy" />
                 </div>
             </aside>
@@ -265,7 +269,7 @@
         </div>
     </section>
 
-    <!-- NEW: Newsletter Section -->
+ 
 
 
     <hr class="" />
@@ -346,37 +350,8 @@
             </div>
         </div>
     </section>
-    @*     <hr class="" />
-    <section id="newsletter" class="newsletter-section">
-        <div class="container py-4">
-            <div class="newsletter-content">
-                <div class="newsletter-text">
-                    <h3>Stay Updated on New Collections</h3>
-                    <p>Subscribe to our newsletter and be the first to discover new artworks, exclusive exhibitions, and special collector events.</p>
-                </div>
-                <form class="newsletter-form" method="post" asp-action="Subscribe">
-                    <input type="email" placeholder="Enter your email" required aria-label="Email address" />
-                    <button type="submit" class="custom-btn">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section> *@
 
-    <section class="animated-drawing-section">
-        <div class="drawing-container">
-            <div class="drawing-header">
-                <h2>Artistic Expression</h2>
-                <p>Watch as our gallery brings art to life</p>
-            </div>
 
-            <div class="canvas-wrapper">
-                <canvas id="drawingCanvas"></canvas>
-                <div class="canvas-overlay"></div>
-            </div>
-
-           
-        </div>
-    </section>
 </main>
 
 <footer class="site-footer">
