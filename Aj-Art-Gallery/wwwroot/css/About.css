@@ -24,18 +24,6 @@
     --transition: all 0.25s ease;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-}
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {
@@ -409,7 +397,7 @@ html {
 
 /* ===== LOCATION SECTION ===== */
 .location-section {
-    padding: 6rem 2rem;
+    padding: 2rem 2rem;
     background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
     border-top: 1px solid var(--border);
 }
@@ -443,7 +431,7 @@ html {
     }
 
 .location-info h3 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 2rem;
     color: var(--text);

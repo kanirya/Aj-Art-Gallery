@@ -29,6 +29,8 @@ namespace Aj_Art_Gallery.Controllers
         }
         public IActionResult About()
         {
+          var memeory=  GC.GetTotalMemory(false);
+
             return View();
         }
         public IActionResult Privacy()
